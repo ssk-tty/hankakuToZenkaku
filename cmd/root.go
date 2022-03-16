@@ -25,20 +25,22 @@ var rootCmd = &cobra.Command{
 	Use:   use,
 	Short: short,
 	Long:  long,
-	Run: func(cmd *cobra.Command, args []string) {
+	Run:   run,
+}
 
-		fmt.Printf("args = %#v\n\n", args)
+func run(cmd *cobra.Command, args []string) {
 
-		sentence := strings.Join(args, " ")
+	fmt.Printf("args = %#v\n\n", args)
 
-		splitWords := strings.Split(sentence, "")
+	sentence := strings.Join(args, " ")
 
-		zenMap := GetZenMap()
+	splitWords := strings.Split(sentence, "")
 
-		result := Convert(zenMap, splitWords)
+	zenMap := GetZenMap()
 
-		fmt.Printf("result: %s\n", result)
-	},
+	result := Convert(zenMap, splitWords)
+
+	fmt.Printf("result: %s\n", result)
 }
 
 func Execute() {
