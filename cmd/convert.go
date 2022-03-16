@@ -2,7 +2,9 @@ package cmd
 
 import "fmt"
 
-func Convert(wordMap map[string]string, words []string) []byte {
+type WordMap map[string]string
+
+func Convert(wordMap WordMap, words []string) []byte {
 	var result []byte
 
 	for _, word := range words {
@@ -14,7 +16,7 @@ func Convert(wordMap map[string]string, words []string) []byte {
 	return result
 }
 
-func hanToZen(wordMap map[string]string, word string) string {
+func hanToZen(wordMap WordMap, word string) string {
 	if val, ok := wordMap[word]; ok {
 		return val
 	}

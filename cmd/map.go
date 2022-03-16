@@ -1,7 +1,7 @@
 package cmd
 
 // GetZenMap returns half character to full map
-func GetZenMap() map[string]string {
+func GetZenMap() WordMap {
 	zenMap := make(map[string]string)
 
 	zenMap["1"] = "１"

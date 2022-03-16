@@ -1,8 +1,14 @@
 # hankakuToZenkaku
-半角を全角に変換
-今は数字だけ  
+convert half width characters to full.  
+now only can be integers.  
 
-
+## install modules
 ```shell
-go run main.go "123 ccc" aaa
+go mod tidy
+```
+
+## run
+```shell
+go run main.go 123 ccc aaa # for test
+go run main.go "123 ccc"   # for test
 ```
