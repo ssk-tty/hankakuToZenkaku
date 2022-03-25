@@ -8,7 +8,11 @@ go mod tidy
 ```
 
 ## run
+e.g.
 ```shell
-go run main.go 123 ccc aaa # for test
-go run main.go "123 ccc"   # for test
+go run main.go "東京都渋谷区1-2-3 xxx building"
 ```
+
+
+## next update
+- half width katakana

@@ -16,7 +16,7 @@ const long = "long desc"
 /**
 todo
 	split into packages
-	add zenMap
+	update zenMap
 	delete debug log
 	fix config
 */
@@ -30,7 +30,7 @@ var rootCmd = &cobra.Command{
 
 func run(cmd *cobra.Command, args []string) {
 
-	fmt.Printf("args = %#v\n\n", args)
+	//fmt.Printf("args = %#v\n\n", args)
 
 	sentence := strings.Join(args, " ")
 
@@ -40,7 +40,8 @@ func run(cmd *cobra.Command, args []string) {
 
 	result := Convert(zenMap, splitWords)
 
-	fmt.Printf("result: %s\n", result)
+	//fmt.Printf("result: %s\n", result)
+	fmt.Printf("%s\n", result)
 }
 
 func Execute() {

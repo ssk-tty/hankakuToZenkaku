@@ -1,7 +1,5 @@
 package cmd
 
-import "fmt"
-
 type WordMap map[string]string
 
 func Convert(wordMap WordMap, words []string) []byte {
@@ -9,7 +7,7 @@ func Convert(wordMap WordMap, words []string) []byte {
 
 	for _, word := range words {
 		w := hanToZen(wordMap, word)
-		fmt.Printf("old: %s, new: %s\n", word, w)
+		//fmt.Printf("old: %s, new: %s\n", word, w)
 		result = append(result, w...)
 	}
 
