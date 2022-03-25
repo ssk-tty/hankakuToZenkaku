@@ -1,8 +1,10 @@
-package cmd
+package convertor
 
 // GetZenMap returns half character to full map
 func GetZenMap() WordMap {
 	zenMap := make(map[string]string)
+
+	zenMap[" "] = "　"
 
 	zenMap["1"] = "１"
 	zenMap["2"] = "２"
@@ -14,7 +16,6 @@ func GetZenMap() WordMap {
 	zenMap["8"] = "８"
 	zenMap["9"] = "９"
 	zenMap["0"] = "０"
-	zenMap[" "] = "　"
 
 	zenMap["-"] = "－"
 

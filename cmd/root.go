@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	. "hankakuToZenkaku/convertor"
 	"os"
 	"strings"
 )
@@ -15,9 +16,7 @@ const long = "long desc"
 
 /**
 todo
-	split into packages
 	update zenMap
-	delete debug log
 	fix config
 */
 
@@ -28,19 +27,17 @@ var rootCmd = &cobra.Command{
 	Run:   run,
 }
 
-func run(cmd *cobra.Command, args []string) {
-
-	//fmt.Printf("args = %#v\n\n", args)
-
+func run(_ *cobra.Command, args []string) {
 	sentence := strings.Join(args, " ")
 
 	splitWords := strings.Split(sentence, "")
 
 	zenMap := GetZenMap()
 
-	result := Convert(zenMap, splitWords)
+	zenConverter := NewWordConvertor(zenMap)
 
-	//fmt.Printf("result: %s\n", result)
+	result := zenConverter.Convert(splitWords)
+
 	fmt.Printf("%s\n", result)
 }
 
