@@ -32,7 +32,7 @@ func run(_ *cobra.Command, args []string) {
 
 	splitWords := strings.Split(sentence, "")
 
-	wordConvertor := NewWordConvertor(splitWords)
+	wordConvertor := NewWordConvertor(&splitWords)
 
 	result := wordConvertor.ToZen()
 
