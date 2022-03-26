@@ -3,28 +3,38 @@ package convertor
 type WordMap map[string]string
 
 type WordConvertor struct {
-	wordMap WordMap
+	words []string
 }
 
-func NewWordConvertor(wordMap WordMap) *WordConvertor {
+func NewWordConvertor(words []string) *WordConvertor {
 	return &WordConvertor{
-		wordMap,
+		words,
 	}
 }
 
-func (c *WordConvertor) Convert(words []string) []byte {
+func lenIsGraterThan(word string, base int) bool {
+	return len(word) > base
+}
+
+func (wc *WordConvertor) ToZen() []byte {
 	var result []byte
 
-	for _, word := range words {
-		w := c.hanToZen(word)
-		result = append(result, w...)
+	zenMap := GetZenMap()
+
+	for _, word := range wc.words {
+		if lenIsGraterThan(word, 1) {
+			result = append(result, word...)
+			continue
+		}
+
+		result = append(result, wc.mapping(zenMap, word)...)
 	}
 
 	return result
 }
 
-func (c *WordConvertor) hanToZen(word string) string {
-	if val, ok := c.wordMap[word]; ok {
+func (wc *WordConvertor) mapping(wordMap WordMap, word string) string {
+	if val, ok := wordMap[word]; ok {
 		return val
 	}
 
